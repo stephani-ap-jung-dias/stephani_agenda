@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2> cadastro de compromiço</h2>
+        <input id="Id" placeholder="ID (gerado automaticamente)" readonly />
+        <input id="titulo" placeholder="titulo"/>
+        <input id="dia" placeholder="data"/>
+        <input in="descricao" placeholder="Descrição"/>
+        <button class="btn-success" onclick="adicionarOutrareserva()">Salvar</button>
+    </div>
+    <div>
+        <h2>lista de compromisos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Titulo</th>
+                    <th>Dia</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody id ="tabela"></tbody>
+        </table>
+    </div>
+    </div>
+    <script>
+         const API_URL = 'http://localhost:5108'
+         
+         async function caregar(){
+            const resposta = await fetch(API);
+            const Reserva = await resposta.json();
+            MostrarReservas(Reserva);
+         }
+         
+  
+
+    </script>
+</body>
+</html>
